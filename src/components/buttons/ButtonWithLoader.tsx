@@ -1,17 +1,17 @@
-interface ButtonWithLoaderProps {
-  state: "idle" | "loading" | "success" | "error";
-}
+import { LoaderType } from "./interfaces";
 
-function ButtonWithLoader({ state }: ButtonWithLoaderProps) {
-    const baseStyle = "bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded cursor-pointer";
+function ButtonWithLoader({ state, onClick }: { state: LoaderType; onClick: () => void }) {
+  const baseStyleButton =
+    "dark:bg-primary text-lg rounded-lg px-4 px-4 py-2 cursor-pointer hover:text-light dark:text-light dark:hover:bg-primary dark:hover:text-dark shadow-xl";
   return (
-    <div
+    <button
+      onClick={onClick}
       className={
         {
-          idle:  `bg-blue-500 ${baseStyle}`,
-          loading: `bg-blue-300 ${baseStyle}`,
-          success: `bg-green-500 ${baseStyle}`,
-          error: `bg-red-500 ${baseStyle}`,
+          idle: `bg-primary dark:bg-danger ${baseStyleButton}`,
+          loading: `bg-secondary  dark:bg-primary ${baseStyleButton}`,
+          success: `bg-success  dark:bg-success ${baseStyleButton}`,
+          error: `bg-danger ${baseStyleButton}`,
         }[state]
       }
     >
@@ -23,7 +23,7 @@ function ButtonWithLoader({ state }: ButtonWithLoaderProps) {
           error: "Error!",
         }[state]
       }
-    </div>
+    </button>
   );
 }
 
