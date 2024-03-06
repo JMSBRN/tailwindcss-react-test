@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-import plugin from 'tailwindcss/plugin'
+import plugin from "tailwindcss/plugin";
 
 export default {
   darkMode: "selector",
@@ -59,28 +59,69 @@ export default {
       lg: "0.5rem",
       full: "9999px",
     },
+    fontFamily: {
+      sans: ['Inter', 'sans-serif'],
+      serif: ['Merriweather', 'serif'],
+      mono: ['Fira Code', 'monospace']
+    }
   },
-plugins: [
-  plugin(function ({ addComponents, addUtilities, theme }) {
-    addComponents({
-      // Loaders
-      '.loader': {
-        display: 'inline-block',
-        verticalAlign: 'middle',
-        border: '4px solid rgba(0, 0, 0, 0.1)',
-        borderTopColor: theme('colors.primary'),
-        borderRadius: '50%',
-        width: '24px',
-        height: '24px',
-        animation: 'spin 1s ease-in-out infinite !important',
-      },
-    });
-    addUtilities({
-      '@keyframes spin': {
-        '0%': { transform: 'rotate(0deg)' },
-        '100%': { transform: 'rotate(360deg)' },
-      },
-    })
-  }),
-],
+  plugins: [
+    plugin(function ({ addComponents, addUtilities, addBase, theme }) {
+      addBase({
+        body: {
+          backgroundColor: theme("colors.light"),
+          color: theme("colors.dark"),
+        },
+        h1: {
+          //text-primary text-xl dark:text-light mb-8 font-family-roboto
+          color: theme("colors.primary"),
+          fontSize: theme("fontSize.xl"),
+          fontWeight: theme("fontWeight.bold"),
+          marginBottom: theme("margin.8"),
+        },
+        ".main-container": {
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          minHeight: "100vh",
+        }
+      })
+      addComponents({
+   
+        "main-container": {
+          backgroundColor: theme("colors.success"),
+        },
+        ".loader": {
+          display: "inline-block",
+          verticalAlign: "middle",
+          border: "4px solid rgba(0, 0, 0, 0.1)",
+          borderTopColor: theme("colors.primary"),
+          borderRadius: "50%",
+          width: "24px",
+          height: "24px",
+          animation: "spin 1s ease-in-out infinite !important",
+        },
+        ".btn": {
+           backgroundColor: theme("colors.primary"),
+           padding: "16px",
+           borderRadius: "4px",
+           fontSize: theme("fontSize.lg"),
+           boxShadow: "0 5px 10px theme('colors.dark')",
+           transition: "all 0.2s ease-in-out",
+           fontFamily: theme("fontFamily.sans"),
+           "&:hover": {
+            backgroundColor: theme("colors.light"),
+            color: theme("colors.success"),
+          },
+        },
+      });
+      addUtilities({
+        "@keyframes spin": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
+      });
+    }),
+  ],
 };

@@ -1,22 +1,27 @@
 import { LoaderType } from "./interfaces";
-
-function ButtonWithLoader({ state, onClick }: { state: LoaderType; onClick: () => void }) {
-  const baseStyleButton =
-    "dark:bg-primary text-lg rounded-lg px-4 px-4 py-2 cursor-pointer hover:text-light dark:text-light dark:hover:bg-primary dark:hover:text-dark shadow-xl";
+function ButtonWithLoader({
+  state,
+  onClick,
+}: {
+  state: LoaderType;
+  onClick: () => void;
+}) {
   return (
     <button
-      onClick={{
-        idle: onClick,
-        loading: () => {},
-        success: () => {},
-        error: () => {},
-      }[state]}
+      onClick={
+        {
+          idle: onClick,
+          loading: () => {},
+          success: () => {},
+          error: () => {},
+        }[state]
+      }
       className={
         {
-          idle: `bg-primary dark:bg-danger ${baseStyleButton}`,
-          loading: `bg-secondary  dark:bg-primary ${baseStyleButton}`,
-          success: `bg-success  dark:bg-success ${baseStyleButton}`,
-          error: `bg-danger ${baseStyleButton}`,
+          idle: "bg-primary dark:bg-danger btn text-dark dark:text-light",
+          loading: "bg-secondary dark:bg-primary btn text-dark dark:text-light",
+          success: "bg-success dark:bg-success btn text-dark dark:text-light",
+          error: "bg-danger btn text-dark dark:text-light",
         }[state]
       }
     >
