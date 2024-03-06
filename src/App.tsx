@@ -18,12 +18,14 @@ function App() {
   return (
     <div className={isDarkMode ? "dark" : ""}>
       <div className="flex flex-col items-center justify-center h-screen bg-white dark:bg-dark">
-        <h1 className="text-primary text-xl dark:text-light mb-8">TailwindCSS with React</h1>
+        <h1 className="text-primary text-xl dark:text-light mb-8 font-family-roboto">TailwindCSS with React</h1>
         <ButtonWithLoader
          state={loaderPeriod}
          onClick={handleClick}/>
         <div onClick={() => setIsDarkMode(!isDarkMode)}>
           <ThemeSwitcher state={isDarkMode} />
+          <br />
+          <div className="loader"/>
         </div>
       </div>
     </div>
