@@ -5,7 +5,12 @@ function ButtonWithLoader({ state, onClick }: { state: LoaderType; onClick: () =
     "dark:bg-primary text-lg rounded-lg px-4 px-4 py-2 cursor-pointer hover:text-light dark:text-light dark:hover:bg-primary dark:hover:text-dark shadow-xl";
   return (
     <button
-      onClick={onClick}
+      onClick={{
+        idle: onClick,
+        loading: () => {},
+        success: () => {},
+        error: () => {},
+      }[state]}
       className={
         {
           idle: `bg-primary dark:bg-danger ${baseStyleButton}`,
