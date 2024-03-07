@@ -14,6 +14,9 @@ export default {
       info: "#17a2b8",
       light: "#f8f9fa",
       dark: "#343a40",
+      gray: "#ddd7d3",
+      white: "#fff",
+      black: "#000",
     },
     fontSize: {
       xs: "0.75rem",
