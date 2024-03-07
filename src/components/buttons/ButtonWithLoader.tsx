@@ -20,7 +20,7 @@ function ButtonWithLoader({
         {
           idle: "btn-idle",
           loading: "btn-loading",
-          success: "btt-success",
+          success: "btn-success",
           error: "btn-error",
         }[state]
       }
