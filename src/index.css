@@ -4,18 +4,73 @@
 @tailwind variants;
 
 @layer components {
-
-    .btn-idle {
-        @apply btn-base bg-primary dark:bg-danger text-dark dark:text-light;
-    }
-    .btn-loading {
-        @apply btn-base bg-secondary dark:bg-secondary text-dark dark:text-light;
-    }
-    .btn-success {
-        @apply btn-base bg-success dark:bg-success text-dark dark:text-light;
-    }
-    .btn-error {
-        @apply btn-base bg-danger text-dark dark:text-light;
+  .btn-idle {
+    @apply btn-base bg-primary dark:bg-danger text-dark dark:text-light;
+  }
+  .btn-loading {
+    @apply btn-base bg-secondary dark:bg-secondary text-dark dark:text-light;
+  }
+  .btn-success {
+    @apply btn-base bg-success dark:bg-success text-dark dark:text-light;
+  }
+  .btn-error {
+    @apply btn-base bg-danger text-dark dark:text-light;
+  }
+  
 }
 
-}
+.card {
+    @apply max-w-sm w-full sm:w-1/2 lg:w-1/3 py-6 px-3;
+  }
+  
+  .card__inner {
+    @apply bg-light shadow-xl rounded-lg overflow-hidden;
+  }
+  
+  .card__header {
+    @apply bg-cover bg-center h-56 p-4;
+  }
+  
+  .card__header-icon {
+    @apply h-6 w-6 text-light;
+  }
+  
+  .card__body {
+    @apply p-4;
+  }
+  
+  .card__title {
+    @apply uppercase tracking-wide text-sm font-bold text-dark;
+  }
+  
+  .card__price {
+    @apply text-xl text-dark;
+  }
+  
+  .card__address {
+    @apply text-secondary;
+  }
+  
+  .card__footer {
+    @apply flex p-4 border-t border-secondary text-secondary;
+  }
+  
+  .card__footer-item {
+    @apply flex-1 inline-flex items-center;
+  }
+  
+  .card__footer-icon {
+    @apply h-6 w-6 text-secondary  mr-3;
+  }
+  
+  .card__footer-text {
+    @apply text-secondary font-bold;
+  }
+  
+  .card__realtor {
+    @apply text-xs uppercase font-bold text-secondary tracking-wide;
+  }
+  
+  .card__realtor-image {
+    @apply bg-cover bg-center w-10 h-10 rounded-full mr-3;
+  }

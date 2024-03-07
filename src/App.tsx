@@ -2,6 +2,7 @@ import { useState } from "react";
 import ButtonWithLoader from "./components/buttons/ButtonWithLoader";
 import ThemeSwitcher from "./components/buttons/ThemeSwitcher";
 import { LoaderType } from "./components/buttons/interfaces";
+import RealtyCard from "./components/cards/RealtyCard";
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -27,6 +28,17 @@ function App() {
           <br />
         </div>
           <div className="loader"/>
+          <RealtyCard 
+            realtyObjectType="House"
+            price="100000"
+            bathrooms={2}
+            bedrooms={4}
+            address="123 Main St"
+            realtorName="John Doe"
+            realtorPhone="555-555-5555"
+            realtorImageUrl="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+            realtyObjectImageUrl="https://images.unsplash.com/photo-1475855581690-80accde3ae2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
+          />
       </div>
     </div>
   );
