@@ -83,6 +83,21 @@ export default {
           fontWeight: theme("fontWeight.bold"),
           marginBottom: theme("margin.8"),
         },
+        header: {
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          backgroundColor: theme("colors.secondary"),
+          color: theme("colors.dark"),
+          padding: theme("padding.6"),
+          boxShadow: theme("boxShadow.md")
+        },
+        main: {
+          display: "flex",
+          flexDirection: "column",
+          minHeight: "100vh",
+          
+        },
         ".main-container": {
           display: "flex",
           flexDirection: "column",

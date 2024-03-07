@@ -4,6 +4,9 @@
 @tailwind variants;
 
 @layer components {
+  .header-link {
+    @apply hover:text-success text-xl sm:text-base md:text-xl;
+  }
   .btn-idle {
     @apply btn-base bg-primary dark:bg-danger text-dark dark:text-light;
   }
@@ -19,6 +22,26 @@
   
 }
 
+/*
+ header
+*/
+
+.nav {
+  @apply bg-primary py-4;
+}
+
+ul {
+  @apply flex space-x-4;
+}
+
+li {
+  @apply text-light;
+}
+
+a {
+  @apply hover:text-secondary;
+}
+ /*  realty card*/
 .card {
     @apply max-w-sm w-full sm:w-1/2 lg:w-1/3 py-6 px-3;
   }

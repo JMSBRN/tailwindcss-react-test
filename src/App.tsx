@@ -1,47 +1,54 @@
-import { useState } from "react";
-import ButtonWithLoader from "./components/buttons/ButtonWithLoader";
-import ThemeSwitcher from "./components/buttons/ThemeSwitcher";
-import { LoaderType } from "./components/buttons/interfaces";
-import RealtyCard from "./components/cards/RealtyCard";
+import { Routes, Route, Outlet, Link } from "react-router-dom";
+import Home from "./pages/Home";
+import Realty from "./pages/Realty";
+import Test from "./pages/Test";
 
-function App() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  const [loaderPeriod, setIsLoaderPeriod] = useState<LoaderType>('idle');
-   const handleClick = () => {
-     setIsLoaderPeriod('loading');
-     setTimeout(() => {
-       setIsLoaderPeriod('success');
-       setTimeout(() => {
-         setIsLoaderPeriod('idle');
-       }, 2000);
-     }, 2000);
-   };
+export default function App() {
   return (
-    <div className={isDarkMode ? "dark" : ""}>
-      <div className="main-container dark:bg-secondary">
-        <h1 className="h1 font-sans dark:text-light">TailwindCSS with React</h1>
-        <ButtonWithLoader
-         state={loaderPeriod}
-         onClick={handleClick}/>
-        <div onClick={() => setIsDarkMode(!isDarkMode)}>
-          <ThemeSwitcher state={isDarkMode} />
-          <br />
-        </div>
-          <div className="loader"/>
-          <RealtyCard 
-            realtyObjectType="House"
-            price="100000"
-            bathrooms={2}
-            bedrooms={4}
-            address="123 Main St"
-            realtorName="John Doe"
-            realtorPhone="555-555-5555"
-            realtorImageUrl="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
-            realtyObjectImageUrl="https://images.unsplash.com/photo-1475855581690-80accde3ae2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
-          />
-      </div>
+    <div>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="realty" element={<Realty />} />
+          <Route path="test" element={<Test />} />
+          <Route path="*" element={<NoMatch />} />
+        </Route>
+      </Routes>
     </div>
   );
 }
 
-export default App;
+function Layout() {
+  return (
+    <main>
+    <header>
+      <nav>
+        <ul>
+          <li>
+            <Link className="header-link" to="/">Home</Link>
+          </li>
+          <li>
+            <Link className="header-link" to="/realty">Example with Realty Cards</Link>
+          </li>
+          <li>
+            <Link className="header-link" to="/test">Testing Page</Link>
+          </li>
+        </ul>
+      </nav>
+    </header><Outlet />
+    </main>
+  );
+}
+
+
+function NoMatch() {
+  return (
+    <div className="text-center text-danger text-xl p-4">
+    <h2 className="text-3xl font-bold text-red-500">Error 404: Page Not Found</h2>
+    <p className="mt-4 text-gray-600">Oops! It looks like the page you're looking for does not exist.</p>
+    <p className="mt-4">
+      <a href="/" className="font-bold hover:text-primary">Go to the home page</a>
+    </p>
+  </div>
+  );
+}
