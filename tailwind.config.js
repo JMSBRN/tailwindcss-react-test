@@ -66,14 +66,18 @@ export default {
     }
   },
   plugins: [
-    plugin(function ({ addComponents, addUtilities, addBase, theme }) {
+    plugin(function ({ addComponents, addUtilities, addBase, addVariant, theme, e }) {
+      addVariant('custom-hover', ({ modifySelectors, separator }) => {
+        modifySelectors(({ className }) => {
+          return `.${e(`custom-hover${separator}${className}`)}:hover`;
+        }); // example above
+      });
       addBase({
-        body: {
+      body: {
           backgroundColor: theme("colors.light"),
           color: theme("colors.dark"),
         },
         h1: {
-          //text-primary text-xl dark:text-light mb-8 font-family-roboto
           color: theme("colors.primary"),
           fontSize: theme("fontSize.xl"),
           fontWeight: theme("fontWeight.bold"),
@@ -88,10 +92,6 @@ export default {
         }
       })
       addComponents({
-   
-        "main-container": {
-          backgroundColor: theme("colors.success"),
-        },
         ".loader": {
           display: "inline-block",
           verticalAlign: "middle",
@@ -102,7 +102,7 @@ export default {
           height: "24px",
           animation: "spin 1s ease-in-out infinite !important",
         },
-        ".btn": {
+        ".btn-base": {
            backgroundColor: theme("colors.primary"),
            padding: "16px",
            borderRadius: "4px",

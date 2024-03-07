@@ -1,4 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@tailwind variants;
 
+.btn-idle {
+    @apply btn-base bg-primary dark:bg-danger text-dark dark:text-light;
+}
+.btn-loading {
+    @apply btn-base bg-secondary dark:bg-secondary text-dark dark:text-light;
+}
+.btt-success {
+    @apply btn-base bg-success dark:bg-success text-dark dark:text-light;
+}
+.btn-error {
+    @apply btn-base bg-danger text-dark dark:text-light;
+}

@@ -18,10 +18,10 @@ function ButtonWithLoader({
       }
       className={
         {
-          idle: "bg-primary dark:bg-danger btn text-dark dark:text-light",
-          loading: "bg-secondary dark:bg-primary btn text-dark dark:text-light",
-          success: "bg-success dark:bg-success btn text-dark dark:text-light",
-          error: "bg-danger btn text-dark dark:text-light",
+          idle: "btn-idle",
+          loading: "btn-loading",
+          success: "btt-success",
+          error: "btn-error",
         }[state]
       }
     >
