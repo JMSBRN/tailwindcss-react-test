@@ -75,7 +75,7 @@ a {
   }
   
   .card__footer {
-    @apply flex p-4 border-t border-secondary text-secondary;
+    @apply flex justify-between min-w-56 py-4 px-2 border-t border-secondary text-secondary text-xs;
   }
   
   .card__footer-item {
