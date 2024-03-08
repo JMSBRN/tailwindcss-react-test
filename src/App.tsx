@@ -21,7 +21,7 @@ export default function App() {
 function Layout() {
   return (
     <main>
-    <header>
+    <header className="sticky top-0">
       <nav>
         <ul>
           <li>
