@@ -5,7 +5,7 @@
 
 @layer components {
   .header-link {
-    @apply hover:text-success text-xl sm:text-base md:text-xl;
+    @apply hover:text-primary md:text-xl;
   }
   .btn-idle {
     @apply btn-base bg-primary dark:bg-danger text-dark dark:text-light;
@@ -97,3 +97,5 @@ a {
   .card__realtor-image {
     @apply bg-cover bg-center w-10 h-10 rounded-full mr-3;
   }
+
+  /* landing */

@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 import plugin from "tailwindcss/plugin";
+import flowbitePlugin  from "flowbite/plugin";
 
 export default {
   darkMode: "selector",
@@ -69,6 +70,7 @@ export default {
     }
   },
   plugins: [
+    flowbitePlugin(),
     plugin(function ({ addComponents, addUtilities, addBase, addVariant, theme, e }) {
       addVariant('custom-hover', ({ modifySelectors, separator }) => {
         modifySelectors(({ className }) => {
