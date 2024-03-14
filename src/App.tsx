@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Realty from "./pages/Realty";
 import Test from "./pages/Test";
 import Landing from "./pages/Landing";
+import LandingSecond from "./pages/LandingSecond";
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="realty" element={<Realty />} />
           <Route path="landing" element={<Landing />} />
+          <Route path="landing-2" element={<LandingSecond />} />
           <Route path="test" element={<Test />} />
           <Route path="*" element={<NoMatch />} />
         </Route>
@@ -31,6 +33,9 @@ function Layout() {
           </li>
           <li>
             <Link className="header-link" to="/landing">Landing</Link>
+          </li>
+          <li>
+            <Link className="header-link" to="/landing-2">Landing-2</Link>
           </li>
           <li>
             <Link className="header-link" to="/realty">Example with Realty Cards</Link>

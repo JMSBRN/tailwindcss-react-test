@@ -95,7 +95,8 @@ export default {
           backgroundColor: theme("colors.secondary"),
           color: theme("colors.dark"),
           padding: theme("padding.6"),
-          boxShadow: theme("boxShadow.md")
+          boxShadow: theme("boxShadow.md"),
+          zIndex: '10000'
         },
         main: {
           display: "flex",
